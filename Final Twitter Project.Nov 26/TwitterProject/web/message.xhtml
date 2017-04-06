@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Messages</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+
+    </h:head>
+    <center>
+    <h:body style="margin-top: 80px;background-image: url('Twitter_Cover.jpg'); background-color: #DDE8F3;">
+        <h:form >
+            <div style="float: left;margin-left: 60px;">
+                <div><h2 class="form-signin-heading"><b>Welcome to message center</b></h2></div>
+                <div><h3 class="form-signin-heading">Your Messages</h3></div>
+         <!--       <div><h3 class="form-signin-heading">#{getmessage.getmessages()}</h3></div> -->
+                <p>
+                    <div class="container">
+                    <div id="j_idt48" class="row table-responsive">
+                        <h:dataTable  styleClass="table-striped table-hover table-condensed"  value="#{getmessage.aray}" var="msg1" border="1" >
+                            <h:column class="bg-primary" headerClass="">
+                            <f:facet name="header">Sender_ID</f:facet>
+                                    #{msg1.senderID}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Message</f:facet>
+                                    #{msg1.msg}
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">Time</f:facet>
+                                    #{msg1.time}
+                            </h:column>
+                        </h:dataTable>
+                    </div></div>
+                </p>
+                <div><h3 style="color: red;">#{search.msg1}</h3></div>
+                <p>
+                    <h:commandButton id="sendMessage" value="Send Message" styleClass="btn btn-primary"
+                                     action="#{sendMessage.Valuenull()}" >
+                        <f:param name="loginID"  value="#{login.loginID}" />  
+                    </h:commandButton>  
+                </p>
+                <p>
+                    <h:commandButton id="msg" value="Return" styleClass="btn btn-default" style="width: 100px;" action="mainpage.xhtml"/>
+                </p>
+            </div>
+        </h:form>
+    </h:body>
+        </center>
+</html>

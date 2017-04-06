@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Your Tweets</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+         <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <style>
+            
+            #id2 {
+                border-bottom: 2px solid lightskyblue;
+                background-color: lightgrey;
+            }
+        </style>
+    </h:head>
+    <h:body style="background-color:#F5F8FA ">
+        <h:form>
+            <center>
+                <div><h2 class="form-signin-heading">Your Tweets</h2></div>
+            </center>
+            <br></br>
+            
+            
+            <!--    <h:dataTable  id="output"  value="#{tweet.aray}" var="twt1" border="1" >
+                    <h:column>
+                        <f:facet name="header">User</f:facet>
+                            #{twt1.senderID}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Tweet</f:facet>
+                            #{twt1.msg}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Time</f:facet>
+                            #{twt1.time}
+                    </h:column>
+                </h:dataTable>   -->
+                
+                
+           
+            <div class="well" style="margin-right:  300px; margin-left: 300px;">
+                <ui:repeat value="#{tweet.GetTweets()}" var="value1"> 
+                    <div style="width: 700px;height: 30px; background-color:  #339CC3;"><span style="margin-left: 10px;">User:</span>  #{value1.senderID}</div> 
+                  <span>Tweet:</span>  #{value1.msg}<br/>
+                  <span>Time:</span>  #{value1.time} <br />
+                   <!--separator-->
+                    <p id = "id2"></p>
+                </ui:repeat>
+            </div>
+            
+           
+            <center><h:commandButton id="rtn5" value="Return" action="mainpage.xhtml" class="btn btn-default" style="width: 100px;margin-bottom: 100px;"/></center>  
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Twitter</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <style>
+
+            #id2 {
+                border-bottom: 2px solid lightskyblue;
+                background-color: lightgrey;
+            }
+            
+        </style>
+
+    </h:head>
+    <h:body style="background-color: #F5F8FA">
+        <h:form>
+            <div>  
+            <nav class="navbar navbar-default">
+                <div class="container-fluid" style="background-color: white;"  >
+                    <div class="navbar-header">
+                    </div>
+                    <ul class="nav navbar-nav" style="margin-left: 100px;">
+                        <li class="active"><a href="mainpage.xhtml"><b>
+                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</b></a></li>
+                        <li><a href="memories.xhtml"><b>
+                                        <span class="glyphicon glyphicon-flash" aria-hidden="true"></span> 
+                                        Moments</b></a></li>
+                        <li><a href="notifications.xhtml"><b>
+                                        <span class="glyphicon glyphicon-bell" aria-hidden="true"></span> 
+                                        Notifications</b></a></li>
+                        <li><a href="message.xhtml"><b>
+                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 
+                                        Messages</b></a></li>
+                        <li><h:commandLink action="#{follow.setMsgNull()}"><b>
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 
+                                        Follow</b></h:commandLink></li>
+                    </ul>
+                    <ul class="nav navbar-nav" style="margin-left: 320px;">
+                        
+                        <li><a href="search.xhtml"><b>
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</b></a></li>
+                        <li><h:commandLink action="#{login.ValueNull1()}"><b>
+                                    <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</b></h:commandLink></li>
+                    </ul>
+                </div>
+            </nav>
+            </div>
+            
+            
+            <div>
+                <p:graphicImage value="#{login.imgData}" style="width:100px;width:200px">
+                </p:graphicImage>
+            </div>
+            <div>
+
+           <!--     <p:fileUpload value="#{login.uploadedFile}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/> 
+                <p:commandButton id="submit" value="Submit"
+                                 action="#{login.upload()}" ajax="false" />-->
+
+
+            </div>
+        </h:form>
+        <h:form>
+            <div style="border: 1px solid buttonface; border-top-left-radius: 10px;border-top-right-radius: 10px; margin: 0 50% 0 15%;  background-color: #339CC3; height: 70px;width: 350px;"></div>
+            <div style="border: 1px solid buttonface; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px; margin: 0 50% 0 15%;  background-color: white; height: 170px;width: 350px;" >
+                <h3>  <div style="margin-left: 110px;"><div><b>#{login.name}</b></div></div></h3>
+                <div style="margin-left: 120px;"><div style="font-size: 17px;"><i>@#{login.loginID}</i></div></div><br/>
+                <div style="float:left;margin-left: 25px;"> 
+                    <span style="color:#8899AE;font-family: 'Cabin Sketch', cursive;">TWEETS</span> <br/>
+                    <div style="color:#1DA1F2;font-size: 25px;"> #{tweet.Twt_count()}</div></div>
+                <div style="float:left;margin-left: 25px;">  
+                    <span style="color:#8899AE;font-family: 'Cabin Sketch', cursive;">FOLLOWERS</span> <br/>
+                    <div style="color:#1DA1F2;font-size: 25px;">#{tweet.follower_count()}</div> </div>
+                <div style="float:left;margin-left: 30px;">
+                    <span style="color:#8899AE;font-family: 'Cabin Sketch', cursive;">FOLLOWING</span> <br/>
+                    <div style="color:#1DA1F2;font-size: 25px;"> #{tweet.following_count()}</div></div> 
+            </div>
+        </h:form>
+
+        <h:form style=" margin-left: 550px;"> 
+            
+            <div class="well" style="float: left;margin-left: 20px;background-color: #E8F5FD;margin-top: -238px;">
+
+                    <h:inputTextarea a:placeholder=" What's happening?" class="form-control" id="tweet" value="#{tweet.tweetID}" validatorMessage="Your tweet should be between 1 to 140 characters"
+                                     rows="7" cols="75" style="">
+                        <f:validateLength minimum="1" maximum="140"/>
+                    </h:inputTextarea>
+                    <br></br>
+                    <h:commandButton id="twt" value="Tweet" action="#{tweet.postTweet()}" class="btn btn-primary"
+                                     style="margin-left: 480px;width: 85px;height: 40px;" >
+                    </h:commandButton>
+                    <br></br>
+                    <h:message style="color:red;" for="tweet"/>
+
+                </div>
+            
+        </h:form>
+        <br></br>
+        <h:form style="float:bottom;margin-left: 570px;margin-top: -30px;">
+            <br></br>
+            <br></br>
+            <div class="well" style="margin-right:  170px;background-color: #E8F5FD;">
+                <ui:repeat value="#{tweet.GetFollowTweets()}" var="value1"> 
+                    <div style="width: 530px;height: 30px; background-color:  #339CC3;"><span style="margin-left: 10px;">User:</span>#{value1.senderID}</div> 
+                    <b> <span>Tweet:</span>  #{value1.msg}</b><br/>
+                    <span>Time:</span>  #{value1.time} <br />
+                    <!--separator-->
+                    <p id = "id2"></p>
+                </ui:repeat>
+            </div>
+            
+            
+        </h:form>   
+        <h:form>
+            <center>
+            <div class="container" style="background-color: white;width: 1350px;height: 150px;padding-top: 10px;margin-top: 200px;">
+                <span style="font-size: 16px;color:#339CC3;"><b>&copy; 2016 Twitter</b></span><br/>
+                <span style="font-size: 17px;color:red;"><b>Java Team Project</b></span><br/>
+                <span style="font-size: 17px;color:red;"><b>Made By</b></span><br/>
+                <span style="font-size: 18px;"><b>Juturu Vihari</b></span><br/>
+                <span style="font-size: 18px;"><b>Harsh Shah</b></span><br/>
+                <span style="font-size: 18px;"><b>Lan Ma</b></span>
+                
+                
+            </div>
+            </center>
+        </h:form>
+
+
+    </h:body>
+
+</html>

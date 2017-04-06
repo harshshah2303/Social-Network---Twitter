@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Following Tweets</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+         <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <style>
+            
+            #id2 {
+                border-bottom: 2px solid lightskyblue;
+                background-color: lightgrey;
+            }
+        </style>
+    </h:head>
+   
+    <h:body style="background-color:#F5F8FA; margin-top: 50px; ">
+        <h:form>
+            
+            <center>   <div><h2 class="form-signin-heading">#{search.keyId} Tweets</h2></div></center>  <br/>
+      <!--      <div>
+                <h:dataTable value="#{search.aray}" var="tweet2" border="1">
+                    <h:column>
+                        <f:facet name="header">Tweets</f:facet>
+                        #{tweet2.tweet}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Time</f:facet>
+                        #{tweet2.time}
+                    </h:column>
+                    
+                </h:dataTable>
+            </div>   -->
+      <div class="well" style="margin-right:300px; margin-left: 300px;">
+          <ui:repeat value="#{search.aray}" var="value1"> 
+              <b><span>Tweet:</span>  #{value1.tweet}</b>  <br/>
+                  <span>Time:</span>  #{value1.time} <br />
+                   <!--separator-->
+                    <p id = "id2"></p>
+                </ui:repeat>
+            </div>
+            <p>
+                <center><h:commandButton id="return1" value="Return" action="search.xhtml" class="btn btn-primary
+                                         " style="width: 100px;margin-bottom: 100px;"/></center>
+            </p>
+        </h:form>
+    </h:body>
+      
+</html>

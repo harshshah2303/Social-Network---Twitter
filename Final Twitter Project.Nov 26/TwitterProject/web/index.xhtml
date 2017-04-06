@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Home Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <h:body>
+        <h:form>
+            <h3>Welcome To Twitter!!!</h3>
+            <h:commandLink action="#{createNewAccount.MsgNull()}">
+                Register
+            </h:commandLink>
+            &nbsp;
+            <h:commandLink action="#{login.ValueNull()}">
+                Login
+            </h:commandLink>
+            &nbsp;
+            <h:commandLink action="#{passwordRetrieval.ValueNull()}">
+                Forgot Password
+            </h:commandLink>
+                    
+        </h:form>
+    </h:body>
+</html>

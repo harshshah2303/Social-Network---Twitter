@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title></title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+<script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body style="margin-top: 80px;background-image: url('Twitter_Cover.jpg'); background-color: #DDE8F3;">
+        <h:form>
+            <div align="center"><h3>Welcome to Notifications : #{login.loginID}</h3></div>
+
+            <div class="container" align="center"> 
+                <table class="table"  style="width:500px">
+                    <thead>
+                        <tr class="info">
+                            <th style="color:black; font-size: small" align="center">Sender ID</th>
+                           
+                        </tr>
+                    </thead>
+ <tbody>
+                    <c:forEach var="messages" items="${notifications.fields}">
+
+<!--                    <p:column>#{messages} Messaged you</p:column>
+<br></br>-->
+                       
+                            <tr class="warning">
+                                <td style="color:black">#{messages}  messaged you</td>
+                                
+                            </tr>
+
+                   
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div>
+            <br></br>
+            <div align="center">
+                <h:commandButton id="back1" value="Return" action="mainpage.xhtml"/>
+            </div>
+
+            <div style="float: left;margin-left: 20px;">
+            </div>
+        </h:form>
+
+
+    </h:body>
+</html>

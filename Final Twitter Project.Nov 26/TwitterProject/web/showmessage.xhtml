@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Login</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+         <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 600px;
+                padding: 15px;
+            }
+            </style>
+         
+    </h:head>
+        <h:body style="padding-top: 60px; background-color: #add;">
+        <div id="j_idt5" class="container">
+        <h:form id="j_idt6"   class="form-signin" enctype="application/x-www-form-urlencoded">
+             <h3 class="form-signin-heading">This is your messages!</h3>
+             
+                <div id="j_idt48" class="row table-responsive">
+                <h:dataTable  styleClass="table-striped table-hover table-condensed" value="#{getmessage.aray}" var="msg1" border="1" >
+                    
+                    <h:column class="bg-primary" headerClass="">
+                        <f:facet name="header">Sender_ID</f:facet>
+                        #{msg1.senderID}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Message</f:facet>
+                        #{msg1.msg}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Time</f:facet>
+                        #{msg1.time}
+                    </h:column>
+                    
+                </h:dataTable>
+                </div>
+            
+            <p>
+                    <h:commandButton id="return" class="btn btn-primary" value="Return"
+                                     action="message.xhtml" />
+            </p>
+        </h:form>
+          </div>
+        
+    </h:body>
+</html>
