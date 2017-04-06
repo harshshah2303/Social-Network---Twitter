@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Open New Account</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    </h:head>
+    <h:body style="margin-top: 100px; background-color:#F5F8FA ">
+        <center>
+
+        <h:form enctype="multipart/form-data" style="border: 1px solid buttonface; margin: 0 30% 0 35%; border-top-left-radius: 10px;border-top-right-radius: 10px; background-color: white">
+            <h1>Join Twitter Today</h1>
+            <p><br></br>
+                <h:inputText a:placeholder="Login ID"  class="form-control" style="width: 300px;" id="loginId" required ="true" 
+                             requiredMessage="The Login ID Field cannot be empty"
+                             title="Please enter your Login ID"
+                             value="#{createNewAccount.loginId}">
+                </h:inputText>
+                <h:message style="color:red;" for="loginId"/>
+            </p>
+
+            <p><br></br>
+                <h:inputText a:placeholder="Full Name" class="form-control" style="width: 300px;" id="name" required ="true" 
+                             requiredMessage="The Name Field cannot be empty"
+                             title="Please enter your name"
+                             value="#{createNewAccount.name}">
+                </h:inputText>
+                <h:message style="color:red;" for="name"/>
+            </p>
+
+            <p><br></br>
+                <h:inputSecret a:placeholder="Password" class="form-control" style="width: 300px;" id="password" required ="true" 
+                               requiredMessage="The Password Field cannot be empty"
+                               title="Please enter your password"
+                               value="#{createNewAccount.password}">
+                </h:inputSecret>
+                <h:message style="color:red;" for="password"/>
+            </p>
+
+            <p><br></br>
+                <h:inputText a:placeholder="Email" id="email" class="form-control" style="width: 300px;" required ="true" 
+                             requiredMessage="The Email Field cannot be empty"
+                             title="Please enter your password"
+                             validatorMessage="Invalid email format"
+                             value="#{createNewAccount.email}">  
+                    <f:validateRegex
+                        pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                </h:inputText>
+                <h:message style="color:red;" for="email"/>
+            </p>
+            <br></br>
+
+        <!--    <h:outputLabel for="image" value="Select Image:" />    -->
+            <p>   
+                <p:fileUpload value="#{createNewAccount.uploadedFile}" mode="simple" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"/>
+            </p>
+        <br></br>
+            <p>
+                <p:commandButton id="submit" value="Sign Up" class="btn btn-primary" style="width: 300px;"
+                                 action="#{createNewAccount.createNewAccount()}" ajax="false" />
+            </p> 
+        </h:form>
+
+        <h:form style="border: 1px solid buttonface; margin: 0 30% 0 35%;  background-color: #F4F4F4; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+            <h:commandButton id="bck2" value="BACK" action="login.xhtml" class="btn btn-block"/>
+        </h:form>
+            </center>
+    </h:body>
+</html>
+
+

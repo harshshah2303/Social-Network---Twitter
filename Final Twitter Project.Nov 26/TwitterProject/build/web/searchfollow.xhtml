@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Follow Friends</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+         <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 600px;
+                padding: 15px;
+            }
+            </style>
+         
+    </h:head>
+    <center>
+     <h:body style="margin-top: 100px; background-color:#F5F8FA ">
+               <br></br>
+               <br></br>
+                <br></br>
+               <br></br>
+               <h:form style="border: 1px solid buttonface; margin: 0 30% 0 28%;  background-color: white" >
+             <div>
+                 <h1><b>You are not following, #{search.keyId}</b></h1></div>
+                <br></br>
+                
+                <h2 class="form-signin-heading">Would you like to follow #{search.keyId}? </h2> 
+               <br></br>
+               <br></br>
+               </h:form>
+               <h:form style="border: 1px solid buttonface; margin: 0 30% 0 28%;  background-color: #F4F4F4; height: 70px;padding-top: 15px">
+                <h:commandButton id="flw1" value="Follow" action = "#{search.followsearch()}" class="btn btn-primary" style="width: 100px" />
+            &nbsp;&nbsp; &nbsp;&nbsp;
+            <h:commandButton id="rtn5" value="Return" action="search.xhtml" class="btn btn-primary" style="width: 100px;"/>
+            <br/><br/>
+       
+        </h:form>
+    </h:body>
+        </center>
+</html>

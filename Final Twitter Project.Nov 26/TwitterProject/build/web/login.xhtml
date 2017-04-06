@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <head>
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </head>
+
+    <h:body style="margin-top: 100px; background-color:#F5F8FA ">
+        <center>
+
+            <h:form style="border: 1px solid buttonface; margin: 0 30% 0 28%;  background-color: white;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                <h3>Login to Twitter</h3>
+
+                <p><br></br>
+                    <h:inputText a:placeholder="Login ID"  class="form-control" style="width: 300px;" id="id" required ="true" 
+                                 requiredMessage="The Login ID field cannot be empty"
+                                 title="Please enter your ID"
+                                 value="#{login.loginID}">
+                    </h:inputText>
+                    <h:message style="color:red;" for="id"/>
+                </p>
+
+                <p><br></br>
+                    <h:inputSecret a:placeholder="Password"  class="form-control" style="width: 300px;" id="pwd" required ="true"
+                                   requiredMessage="The Password field cannot be empty"
+                                   title="Please enter your ID"
+                                   value="#{login.password}">
+                    </h:inputSecret>
+                    <h:message style="color:red;" for="pwd"/>
+                </p>
+                <br></br>
+                <p>
+                    <h:commandButton class="btn btn-primary" id="submit" value="Log In" style="width: 300px;"
+                                     action="#{login.loginto()}"/>
+                </p>
+
+                <div>
+                    <b><h3 style="color: red">#{login.msg}</h3></b>
+                </div>
+            </h:form> 
+            <h:form style="border: 1px solid buttonface; margin: 0 30% 0 28%; border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;  background-color: #F4F4F4; height: 70px;padding-top: 10px">
+                <h:link outcome="signup.xhtml">
+                    New to Twitter?Sign Up Now
+                </h:link>
+                <br></br>
+                <h:link outcome="passwordRetrieval.xhtml">
+                    Forgot Password
+                </h:link>
+            </h:form>
+
+        </center>
+    </h:body>
+</html>

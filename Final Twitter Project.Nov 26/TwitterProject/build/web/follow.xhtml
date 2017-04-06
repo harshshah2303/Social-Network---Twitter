@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Follow Friends</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <center>
+        <h:body onload="#{follow.getFollowers()}" style="margin-top: 25px; background-color:#F5F8FA ">
+            <h:form>
+
+                <h2><b>FOLLOW A FRIEND</b></h2>
+                <h:inputText id="name" value="#{follow.followID}" required="true" requiredMessage="Please enter the name of the person you want to follow" />
+                &nbsp;
+                <h:commandButton id="flw" value="Follow" class="btn btn-primary" action ="#{follow.followrqst()}" />
+                <br></br><br></br>
+                <h:message style="color:red;" for="name"/>
+                <br></br>
+                <div>
+                    <b><h3 style="color: red"> #{follow.msg} </h3></b>
+                </div>
+                <center>
+                    <div>
+                        <h2><i>Followers</i></h2>
+                        <div align="float-left" style="border: 1px solid buttonface; margin: 0 30% 0 28%;background-color: white;height: 200px;">
+
+                            <h:dataTable id="followers"
+                                         rows="#{follow.results.size()}"
+                                         value="#{follow.results}"
+                                         var="fl" style="margin-top: 25px;">
+
+                                <h:column>
+                                    <b>    <h:outputText styleClass="dataTableOutputText"
+                                                         id="followersID" value="#{fl.followID}"/></b>
+                                </h:column>
+                            </h:dataTable>
+                        </div>
+                        <h2><i>Following</i></h2>
+                        <div align="float-left" style="border: 1px solid buttonface; margin: 0 30% 0 28%;background-color: white;height: 200px;">
+                            <h:dataTable id="following"
+                                         rows="#{follow.following.size()}"
+                                         value="#{follow.following}"
+                                         var="following" style="margin-top: 25px;">
+
+                                <h:column>
+                                    <b> <h:outputText styleClass="dataTableOutputText"
+                                                      id="followingID" value="#{following.followID}"/></b>
+                                </h:column>
+                            </h:dataTable>
+
+                        </div>
+
+                    </div>
+                </center>
+
+
+
+            </h:form>
+            <br></br>
+            <h:form>
+                <h:commandButton id="rtn6" value="Return" class="btn btn-primary" action="mainpage.xhtml" style="margin-bottom: 25px;"/>
+            </h:form>
+
+        </h:body>
+    </center>
+</html>

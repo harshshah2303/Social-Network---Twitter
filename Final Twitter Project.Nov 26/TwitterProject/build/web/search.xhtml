@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Search</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    </h:head>
+    <h:body style="margin-top: 100px; margin-left: 100px; background-image: url('tumblr_mesn4nnvGW1r7gxl0o1_1280.jpg')">
+
+        <h:form>
+            <div style="margin-left: 450px;"><h2 class="form-signin-heading" style="color:white ">Search Tweets</h2></div>
+            <div style="float: left;margin-left: 20px;margin-top: 40px;">
+
+                <h:inputTextarea class="form-control" a:placeholder="Search Tweets" id="searchbox" value="#{search.key}" validatorMessage="Your search should be between 1 to 10 characters"
+                                 rows="1" cols="70" style="">
+                    <f:validateLength minimum="1" maximum="10"/>
+                </h:inputTextarea>
+
+                <br></br>
+                <h:commandButton id="search" value="Search" action="#{search.MySearch()}" class="btn btn-primary" >
+                </h:commandButton>
+                <br></br>
+                <h:message style="color:red;" for="searchbox"/>
+                <br></br>
+                <br></br>
+                <div><h3 style="color: red;">#{search.msg1}</h3></div>
+
+            </div>
+
+        </h:form>
+        <h:form>
+            <div style="float: left;margin-left: 60px;margin-top: 40px;">
+
+                <h:inputTextarea class="form-control" a:placeholder="Search By LoginID" id="searchbox1" value="#{search.keyId}" validatorMessage="Your search should be between 1 to 10 characters"
+                                 rows="1" cols="70" style="">
+                    <f:validateLength minimum="1" maximum="10"/>
+                </h:inputTextarea>
+                <br></br>
+                <h:commandButton id="search1" value="Search" action="#{search.searchID()}" class="btn btn-primary" >
+                </h:commandButton>
+                <br></br>
+                <h:message style="color:red;" for="searchbox1"/>
+            </div>
+        </h:form>
+
+
+        <h:form>
+            <h:commandButton id="rtn2" value="Return" action="mainpage.xhtml" style="margin-top: 150px; 
+                             margin-left: -620px;width: 100px;" class="btn btn-default"/>
+        </h:form>
+
+
+
+    </h:body>
+</html>

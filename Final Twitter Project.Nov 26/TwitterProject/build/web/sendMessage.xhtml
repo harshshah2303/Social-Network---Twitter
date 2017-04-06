@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Send Message</title>
+        <meta http-equiv="cache-control" content="no-cache" />
+        <meta http-equiv="pragma" content="no-cache" />
+        <meta http-equiv="refresh"/>
+        <script src="bootstrap-3.3.6-dist/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+       <style type="text/css">
+            .form-signin {
+                margin: 0 auto;
+                max-width: 600px;
+                padding: 15px;
+            }
+            </style>
+    </h:head>
+    <h:body style="padding-top: 60px;background-image: url('Twitter_Cover.jpg'); background-color: #DDE8F3;">
+        
+    <div id="j_idt5" class="container">
+         <h:form id="j_idt6" class="form-signin" enctype="application/x-www-form-urlencoded">
+             <div><center><h2 class="form-signin-heading"><b>Send Message</b></h2></center></div>
+            
+             <p><h3>Send message to:</h3>
+                
+                #{sendMessage.takeID()}
+                <h:selectOneMenu
+                        id="users" required ="true" class="form-control bf-no-message"
+                                     value="#{sendMessage.receiverID}">
+                    <f:selectItems value="#{sendMessage.user}"/>
+                </h:selectOneMenu>
+                
+               </p>
+        
+             <p>
+                <h:inputText a:placeholder="Message" id="message" class="form-control bf-no-message" value="#{sendMessage.message}"></h:inputText>
+            </p>
+               
+        <p>
+            <h:commandButton id="return" value="send" class="btn btn-primary" 
+                             action="#{sendMessage.send()}" style="width: 100px;" >
+                                   <f:param name="loginID"  value="#{login.loginID}" />  
+            </h:commandButton> 
+             &nbsp;&nbsp;
+             <br/>
+             <div><h3>#{sendMessage.msg}</h3></div>
+                
+        </p>
+        </h:form>
+        </div>
+        <h:form>
+            <center>
+            <h:commandButton id="return10" value="Return" class="btn btn-default" style="width: 100px;"
+                                 action="message.xhtml" />
+            </center>
+        </h:form>
+    </h:body>
+</html>
